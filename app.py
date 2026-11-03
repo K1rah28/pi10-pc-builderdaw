@@ -112,6 +112,7 @@ cpu_options = {
     }
 }
 
+
 motherboard_options = {
     "H610M (LGA1700)": {
         "price": 4500,
@@ -127,6 +128,14 @@ motherboard_options = {
         "price": 4000,
         "socket": "AM4",
         "ram_type": "DDR4"
+    },
+    "MSI B550M PRO-VDH WiFi": {
+        "price": 6050,
+        "socket": "AM4",
+        "ram_type": "DDR4"
+    }
+}
+
     },
     "MSI B550M PRO-VDH WiFi": {
         "price": 6050,
