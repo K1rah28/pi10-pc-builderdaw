@@ -134,7 +134,7 @@ motherboard_options = {
         "ram_type": "DDR4"
     }
 }
-    },
+    
     "B660M (LGA1700)": {
         "price": 6500,
         "socket": "LGA1700",
