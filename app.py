@@ -127,6 +127,23 @@ motherboard_options = {
         "price": 4000,
         "socket": "AM4",
         "ram_type": "DDR4"
+    },
+    "MSI B550M PRO-VDH WiFi": {
+        "price": 6050,
+        "socket": "AM4",
+        "ram_type": "DDR4"
+    }
+}
+    },
+    "B660M (LGA1700)": {
+        "price": 6500,
+        "socket": "LGA1700",
+        "ram_type": "DDR4"
+    },
+    "A520M (AM4)": {
+        "price": 4000,
+        "socket": "AM4",
+        "ram_type": "DDR4"
     }
 }
 
@@ -146,22 +163,54 @@ gpu_options = {
 }
 
 ram_options = {
-    "8GB DDR4": {"price": 1800, "type": "DDR4"},
-    "16GB DDR4": {"price": 3200, "type": "DDR4"},
-    "32GB DDR4": {"price": 6000, "type": "DDR4"}
+    "8GB DDR4": {
+        "price": 1800,
+        "type": "DDR4"
+    },
+    "16GB DDR4": {
+        "price": 3200,
+        "type": "DDR4"
+    },
+    "32GB DDR4": {
+        "price": 6000,
+        "type": "DDR4"
+    },
+    "Lexar Thor 16GB (2x8GB) DDR4 3200MHz": {
+        "price": 6400,
+        "type": "DDR4"
+    }
 }
 
 storage_options = {
     "256GB SSD": 1500,
     "512GB SSD": 2500,
-    "1TB SSD": 4000
+    "1TB SSD": 4000,
+    "ADATA Legend 860 1TB NVMe PCIe 4.0": 10200
+}
 }
 
 psu_options = {
-    "450W PSU": {"price": 2200, "wattage": 450},
-    "550W PSU": {"price": 3000, "wattage": 550},
-    "650W PSU": {"price": 4000, "wattage": 650},
-    "750W PSU": {"price": 5500, "wattage": 750}
+    "450W PSU": {
+        "price": 2200,
+        "wattage": 450
+    },
+    "550W PSU": {
+        "price": 3000,
+        "wattage": 550
+    },
+    "650W PSU": {
+        "price": 4000,
+        "wattage": 650
+    },
+    "750W PSU": {
+        "price": 5500,
+        "wattage": 750
+    },
+    "Cougar Atlas 650W 80+ Bronze": {
+        "price": 3200,
+        "wattage": 650
+    }
+}
 }
 
 case_options = {
@@ -175,12 +224,13 @@ case_options = {
 # ==========================================
 
 defaults = {
-    "cpu": "Intel Core i3-12100",
-    "motherboard": "H610M (LGA1700)",
+    defaults = {
+    "cpu": "AMD Ryzen 5 5600",
+    "motherboard": "MSI B550M PRO-VDH WiFi",
     "gpu": "NVIDIA RTX 4060",
-    "ram": "16GB DDR4",
-    "storage": "512GB SSD",
-    "psu": "650W PSU",
+    "ram": "Lexar Thor 16GB (2x8GB) DDR4 3200MHz",
+    "storage": "ADATA Legend 860 1TB NVMe PCIe 4.0",
+    "psu": "Cougar Atlas 650W 80+ Bronze",
     "case": "Basic Micro-ATX Case",
     "budget": 50000
 }
