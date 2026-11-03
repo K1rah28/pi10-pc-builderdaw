@@ -1,36 +1,65 @@
 
-# Simple PC Builder
+# 🖥️ PC Builder Pro
 
-A beginner-friendly PC Builder application made with Python and Streamlit.
+PC Builder Pro is a Python-based web application built with Streamlit that allows users to customize their desktop PC builds, estimate component costs, and check basic hardware compatibility.
 
 ## Features
 
-- Select a CPU, motherboard, GPU, RAM, storage, power supply, and case
-- View component prices in Philippine pesos
-- Calculate the estimated total cost
-- Check basic CPU and motherboard socket compatibility
-- Display a build summary
+- **Component Selection:** Choose a CPU, motherboard, GPU, RAM, storage, power supply, and computer case.
+- **Budget Calculator:** Set a budget and calculate the total build cost and remaining balance.
+- **Compatibility Checker:** Check CPU and motherboard socket compatibility, RAM type compatibility, integrated graphics availability, and PSU wattage recommendations.
+- **Build Summary:** View a detailed breakdown of selected components and their prices.
+- **CSV Export:** Download your PC build summary for reference.
+- **Reset Build:** Restore the default component selections and budget.
 
 ## Technologies Used
 
 - Python
 - Streamlit
+- Pandas
 - GitHub
 
-## How to Run
+## Installation
 
-Install the required package:
+1. Clone this repository:
 
-```bash
-pip install -r requirements.txt
-```
+   ```bash
+   git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.git
+   ```
 
-Run the application:
+2. Navigate to the project directory:
 
-```bash
-streamlit run app.py
+   ```bash
+   cd YOUR-REPOSITORY
+   ```
+
+3. Install the required dependencies:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. Run the application:
+
+   ```bash
+   streamlit run app.py
+   ```
+
+5. Open the local URL displayed in your terminal to use the application.
+
+## Project Structure
+
+```text
+PC-Builder-Pro/
+├── app.py
+├── requirements.txt
+└── README.md
 ```
 
 ## Disclaimer
 
-Component prices are sample estimates and may differ from actual market prices.
+The component prices and specifications are sample data provided for educational purposes. Actual prices and hardware compatibility should be verified with manufacturers and retailers before purchasing.
+
+## Authors
+
+Developed as a Computer Fundamentals and Programming (CFP) project.
