@@ -48,14 +48,6 @@ st.markdown("""
         margin-bottom: 12px;
     }
 
-    .price-card {
-        background: #151b2a;
-        border: 1px solid #30394d;
-        border-radius: 12px;
-        padding: 20px;
-        margin-bottom: 12px;
-    }
-
     .total-price {
         font-size: 34px;
         font-weight: 800;
@@ -80,7 +72,6 @@ st.markdown("""
     div.stButton > button:hover {
         background-color: #6d28d9;
         color: white;
-        border: none;
     }
 
     hr {
@@ -88,7 +79,6 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
-
 
 # ==========================================
 # 3. COMPONENT DATABASE
@@ -112,7 +102,6 @@ cpu_options = {
     }
 }
 
-
 motherboard_options = {
     "H610M (LGA1700)": {
         "price": 4500,
@@ -131,26 +120,6 @@ motherboard_options = {
     },
     "MSI B550M PRO-VDH WiFi": {
         "price": 6050,
-        "socket": "AM4",
-        "ram_type": "DDR4"
-    }
-}
-
-    },
-    "MSI B550M PRO-VDH WiFi": {
-        "price": 6050,
-        "socket": "AM4",
-        "ram_type": "DDR4"
-    }
-}
-    
-    "B660M (LGA1700)": {
-        "price": 6500,
-        "socket": "LGA1700",
-        "ram_type": "DDR4"
-    },
-    "A520M (AM4)": {
-        "price": 4000,
         "socket": "AM4",
         "ram_type": "DDR4"
     }
@@ -196,7 +165,6 @@ storage_options = {
     "1TB SSD": 4000,
     "ADATA Legend 860 1TB NVMe PCIe 4.0": 10200
 }
-}
 
 psu_options = {
     "450W PSU": {
@@ -220,20 +188,17 @@ psu_options = {
         "wattage": 650
     }
 }
-}
 
 case_options = {
     "Basic Micro-ATX Case": 2500,
     "Mid-Tower Case": 3500
 }
 
-
 # ==========================================
-# 4. SESSION STATE AND RESET
+# 4. DEFAULT BUILD AND RESET
 # ==========================================
 
 defaults = {
-    defaults = {
     "cpu": "AMD Ryzen 5 5600",
     "motherboard": "MSI B550M PRO-VDH WiFi",
     "gpu": "NVIDIA RTX 4060",
@@ -244,14 +209,15 @@ defaults = {
     "budget": 50000
 }
 
+
 def reset_build():
     for key, value in defaults.items():
         st.session_state[key] = value
 
+
 for key, value in defaults.items():
     if key not in st.session_state:
         st.session_state[key] = value
-
 
 # ==========================================
 # 5. HEADER
@@ -264,12 +230,12 @@ st.markdown(
 
 st.markdown(
     '<p class="subtitle">Build your dream PC. '
-    'Choose components, check compatibility, and calculate your budget.</p>',
+    'Choose components, check compatibility, '
+    'and calculate your budget.</p>',
     unsafe_allow_html=True
 )
 
 st.divider()
-
 
 # ==========================================
 # 6. SIDEBAR
@@ -302,7 +268,6 @@ with st.sidebar:
         use_container_width=True
     )
 
-
 # ==========================================
 # 7. COMPONENT SELECTION
 # ==========================================
@@ -310,14 +275,12 @@ with st.sidebar:
 left_column, right_column = st.columns([1.5, 1])
 
 with left_column:
-
     st.markdown(
         '<p class="section-title">🔧 Select Your Components</p>',
         unsafe_allow_html=True
     )
 
     with st.container(border=True):
-
         col1, col2 = st.columns(2)
 
         with col1:
@@ -329,9 +292,7 @@ with left_column:
                 key="cpu"
             )
 
-            st.caption(
-                f"₱{cpu_options[cpu_name]['price']:,}"
-            )
+            st.caption(f"₱{cpu_options[cpu_name]['price']:,}")
 
         with col2:
             st.markdown("### 🧩 Motherboard")
@@ -359,9 +320,7 @@ with left_column:
                 key="gpu"
             )
 
-            st.caption(
-                f"₱{gpu_options[gpu_name]['price']:,}"
-            )
+            st.caption(f"₱{gpu_options[gpu_name]['price']:,}")
 
         with col4:
             st.markdown("### 💾 Memory")
@@ -372,9 +331,7 @@ with left_column:
                 key="ram"
             )
 
-            st.caption(
-                f"₱{ram_options[ram_name]['price']:,}"
-            )
+            st.caption(f"₱{ram_options[ram_name]['price']:,}")
 
         st.divider()
 
@@ -389,9 +346,7 @@ with left_column:
                 key="storage"
             )
 
-            st.caption(
-                f"₱{storage_options[storage_name]:,}"
-            )
+            st.caption(f"₱{storage_options[storage_name]:,}")
 
         with col6:
             st.markdown("### ⚡ Power Supply")
@@ -402,9 +357,7 @@ with left_column:
                 key="psu"
             )
 
-            st.caption(
-                f"₱{psu_options[psu_name]['price']:,}"
-            )
+            st.caption(f"₱{psu_options[psu_name]['price']:,}")
 
         st.divider()
 
@@ -417,7 +370,6 @@ with left_column:
         )
 
         st.caption(f"₱{case_options[case_name]:,}")
-
 
 # ==========================================
 # 8. GET SELECTED COMPONENTS
@@ -441,20 +393,17 @@ components = [
 
 total_price = sum(price for _, _, price in components)
 
-
 # ==========================================
 # 9. BUILD SUMMARY
 # ==========================================
 
 with right_column:
-
     st.markdown(
         '<p class="section-title">📋 Build Summary</p>',
         unsafe_allow_html=True
     )
 
     with st.container(border=True):
-
         st.markdown("### Estimated Total")
 
         st.markdown(
@@ -485,7 +434,6 @@ with right_column:
                 f"Your build exceeds your budget by ₱{abs(remaining):,}."
             )
 
-
 # ==========================================
 # 10. COMPATIBILITY CHECK
 # ==========================================
@@ -513,7 +461,10 @@ if ram["type"] != motherboard["ram_type"]:
     )
 
 # Integrated graphics check
-if gpu_name == "Integrated Graphics" and not cpu["integrated_graphics"]:
+if (
+    gpu_name == "Integrated Graphics"
+    and not cpu["integrated_graphics"]
+):
     issues.append(
         "The selected CPU has no integrated graphics. "
         "Choose a dedicated GPU."
@@ -547,7 +498,6 @@ with check2:
     else:
         st.success("✅ PSU meets the suggested wattage rating.")
 
-
 # ==========================================
 # 11. DETAILED BUILD TABLE
 # ==========================================
@@ -572,7 +522,6 @@ st.dataframe(
 
 st.markdown(f"### Total Build Cost: ₱{total_price:,}")
 
-
 # ==========================================
 # 12. DOWNLOAD BUILD SUMMARY
 # ==========================================
@@ -587,7 +536,6 @@ st.download_button(
     use_container_width=True
 )
 
-
 # ==========================================
 # 13. FOOTER
 # ==========================================
@@ -596,6 +544,6 @@ st.divider()
 
 st.caption(
     "PC Builder Pro | Sample prices in Philippine pesos. "
-    "Prices and specifications should be verified with actual retailers "
-    "and manufacturer documentation before purchasing."
+    "Prices and specifications should be verified with actual "
+    "retailers and manufacturer documentation before purchasing."
 )
